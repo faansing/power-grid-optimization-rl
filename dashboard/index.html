@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power Grid Optimization - AI Performance Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #f9fafb;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #10b981, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #9ca3af;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #10b981;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #9ca3af;
+        }
+
+        .chart-section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+        }
+
+        .chart-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 400px;
+        }
+
+        .controls {
+            margin-bottom: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .controls label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .controls label:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .controls input[type="radio"] {
+            cursor: pointer;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            font-size: 1.2rem;
+            color: #9ca3af;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>AI-Powered Grid Optimization</h1>
+            <p class="subtitle">Deep Reinforcement Learning for Economic Dispatch</p>
+        </header>
+
+        <div id="loading" class="loading">Loading evaluation data...</div>
+
+        <div id="dashboard" style="display: none;">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="cost-saving">--</div>
+                    <div class="stat-label">Cost Reduction</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="ai-cost">--</div>
+                    <div class="stat-label">AI Average Cost</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="baseline-cost">--</div>
+                    <div class="stat-label">Baseline Cost</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="episodes">100</div>
+                    <div class="stat-label">Test Episodes</div>
+                </div>
+            </div>
+
+            <div class="chart-section">
+                <h2 class="chart-title">Cost Comparison</h2>
+                <div class="chart-container">
+                    <canvas id="comparison-chart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-section">
+                <h2 class="chart-title">Dispatch Trajectory (168 hours)</h2>
+                <div class="controls">
+                    <label>
+                        <input type="radio" name="policy" value="ppo_rl" checked>
+                        <span>AI (PPO)</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="policy" value="greedy">
+                        <span>Greedy Baseline</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="policy" value="rule_based">
+                        <span>Rule-Based</span>
+                    </label>
+                </div>
+                <div class="chart-container">
+                    <canvas id="trajectory-chart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-section">
+                <h2 class="chart-title">Cumulative Cost Over Time</h2>
+                <div class="chart-container">
+                    <canvas id="cost-chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script>
+        let data = null;
+        let charts = {};
+
+        // Load data
+        async function loadData() {
+            try {
+                const response = await fetch('../reports/evaluation_results.json');
+                if (!response.ok) throw new Error('No data');
+                data = await response.json();
+                console.log('Data loaded:', data);
+                initDashboard();
+            } catch (error) {
+                console.error('Error loading data:', error);
+                document.getElementById('loading').textContent = 'Error loading data. Using sample data...';
+                data = generateSampleData();
+                setTimeout(initDashboard, 1000);
+            }
+        }
+
+        function initDashboard() {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('dashboard').style.display = 'block';
+
+            updateStats();
+            createComparisonChart();
+            createTrajectoryChart('ppo_rl');
+            createCostChart();
+            setupControls();
+        }
+
+        function updateStats() {
+            const aiCost = data.ppo_rl.mean_cost;
+            const baselineCost = data.greedy.mean_cost;
+            const saving = ((baselineCost - aiCost) / baselineCost * 100).toFixed(1);
+
+            document.getElementById('cost-saving').textContent = saving + '%';
+            document.getElementById('ai-cost').textContent = '$' + (aiCost / 1000).toFixed(0) + 'K';
+            document.getElementById('baseline-cost').textContent = '$' + (baselineCost / 1000).toFixed(0) + 'K';
+        }
+
+        function createComparisonChart() {
+            const ctx = document.getElementById('comparison-chart').getContext('2d');
+            charts.comparison = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['AI (PPO)', 'Greedy', 'Rule-Based'],
+                    datasets: [{
+                        label: 'Average Cost ($)',
+                        data: [
+                            data.ppo_rl.mean_cost,
+                            data.greedy.mean_cost,
+                            data.rule_based.mean_cost
+                        ],
+                        backgroundColor: ['#10b981', '#ef4444', '#f59e0b'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                color: '#9ca3af',
+                                callback: v => '$' + (v / 1000).toFixed(0) + 'K'
+                            },
+                            grid: { color: 'rgba(255,255,255,0.1)' }
+                        },
+                        x: {
+                            ticks: { color: '#9ca3af' },
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+        }
+
+        function createTrajectoryChart(policy) {
+            const ctx = document.getElementById('trajectory-chart').getContext('2d');
+            const traj = data[policy].trajectory;
+            const hours = Array.from({ length: traj.demands.length }, (_, i) => i);
+
+            if (charts.trajectory) charts.trajectory.destroy();
+
+            charts.trajectory = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: hours,
+                    datasets: [
+                        {
+                            label: 'Demand (MW)',
+                            data: traj.demands,
+                            borderColor: '#ef4444',
+                            backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                            borderWidth: 2,
+                            fill: true,
+                            tension: 0.4
+                        },
+                        {
+                            label: 'Supply (MW)',
+                            data: traj.supplies,
+                            borderColor: policy === 'ppo_rl' ? '#10b981' : '#3b82f6',
+                            backgroundColor: policy === 'ppo_rl' ? 'rgba(16, 185, 129, 0.1)' : 'rgba(59, 130, 246, 0.1)',
+                            borderWidth: 2,
+                            fill: true,
+                            tension: 0.4
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { labels: { color: '#f9fafb' } }
+                    },
+                    scales: {
+                        y: {
+                            ticks: { color: '#9ca3af' },
+                            grid: { color: 'rgba(255,255,255,0.1)' }
+                        },
+                        x: {
+                            ticks: { color: '#9ca3af' },
+                            grid: { color: 'rgba(255,255,255,0.05)' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function createCostChart() {
+            const ctx = document.getElementById('cost-chart').getContext('2d');
+            const policies = ['ppo_rl', 'greedy', 'rule_based'];
+            const colors = ['#10b981', '#ef4444', '#f59e0b'];
+
+            const datasets = policies.map((policy, i) => {
+                const costs = data[policy].trajectory.costs;
+                const cumulative = costs.reduce((acc, cost, idx) => {
+                    acc.push((acc[idx - 1] || 0) + cost);
+                    return acc;
+                }, []);
+
+                return {
+                    label: policy === 'ppo_rl' ? 'AI (PPO)' : policy === 'greedy' ? 'Greedy' : 'Rule-Based',
+                    data: cumulative,
+                    borderColor: colors[i],
+                    borderWidth: 2,
+                    fill: false,
+                    tension: 0.4
+                };
+            });
+
+            const hours = Array.from({ length: datasets[0].data.length }, (_, i) => i);
+
+            charts.cost = new Chart(ctx, {
+                type: 'line',
+                data: { labels: hours, datasets: datasets },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { labels: { color: '#f9fafb' } }
+                    },
+                    scales: {
+                        y: {
+                            ticks: {
+                                color: '#9ca3af',
+                                callback: v => '$' + (v / 1000).toFixed(0) + 'K'
+                            },
+                            grid: { color: 'rgba(255,255,255,0.1)' }
+                        },
+                        x: {
+                            ticks: { color: '#9ca3af' },
+                            grid: { color: 'rgba(255,255,255,0.05)' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function setupControls() {
+            document.querySelectorAll('input[name="policy"]').forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    createTrajectoryChart(e.target.value);
+                });
+            });
+        }
+
+        function generateSampleData() {
+            const hours = 168;
+            const demands = Array.from({ length: hours }, (_, i) =>
+                600 + 200 * Math.sin((i % 24 - 6) * Math.PI / 12) + (Math.random() - 0.5) * 50
+            );
+
+            const createTraj = (eff) => {
+                const supplies = demands.map(d => d * (0.95 + Math.random() * 0.1) * eff);
+                const costs = supplies.map(s => s * (40 + Math.random() * 5));
+                return { demands, supplies, costs };
+            };
+
+            return {
+                ppo_rl: { mean_cost: 1478454, trajectory: createTraj(0.98) },
+                greedy: { mean_cost: 4024748, trajectory: createTraj(1.02) },
+                rule_based: { mean_cost: 5217557, trajectory: createTraj(1.0) }
+            };
+        }
+
+        // Initialize
+        loadData();
+    </script>
+</body>
+
+</html>

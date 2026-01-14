@@ -1,0 +1,64 @@
+# .dockerignore - Exclude unnecessary files from Docker build
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+*.coverage.*
+
+# Data (exclude large files, download at runtime)
+data/*.csv
+!data/.gitkeep
+
+# Models (too large for Docker image)
+models/*.zip
+models/*.pkl
+!models/.gitkeep
+
+# Logs
+logs/*.log
+logs/tensorboard/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Documentation
+docs/*.md
+*.md
+README*.md
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+
+# Misc
+*.bak
+*.tmp
+.deprecated/

@@ -1,0 +1,84 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# Distribution / Packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# MacOS
+.DS_Store
+
+# Project Logic Specifics
+# Exclude large data files (keep sample data if small, otherwise use DVC or external storage)
+data/raw/
+data/processed/
+!data/.gitkeep
+
+# Exclude large model checkpoints (keep final model if small enough, otherwise use LFS)
+models/
+!models/.gitkeep
+
+# Logs
+logs/
+*.log
+
+# Reports (optional - usually better to generate them)
+reports/
+!reports/evaluation_results.json
+
+# Docker
+.docker_temp/

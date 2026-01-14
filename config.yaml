@@ -1,0 +1,54 @@
+# Power Grid Optimization Configuration
+
+# Data Settings
+data:
+  dataset_url: "https://raw.githubusercontent.com/jenfly/opsd/master/opsd_germany_daily.csv"  # Example source
+  local_path: "data/raw/pjm_load_data.csv"
+  processed_path: "data/processed/"
+  train_ratio: 0.7
+  val_ratio: 0.2
+  test_ratio: 0.1
+
+# Environment Settings
+environment:
+  num_generators: 5
+  # Capacities in MW for each generator type (Nuclear, Coal, Gas, Wind, Solar)
+  generator_capacities: [1000.0, 800.0, 600.0, 400.0, 200.0]
+  # Operating costs in $/MWh
+  generator_costs: [10.0, 30.0, 50.0, 0.0, 0.0]
+  # Max ramping rate (MW/step)
+  max_ramping: 100.0
+  # Reward function weights
+  reward_weights:
+    generation_cost: 1.0        # Weight for minimizing operational cost
+    supply_demand_gap: 5000.0   # Weight for matching supply to demand
+    ramping_penalty: 0.1        # Penalty for aggressive generator changes
+    overload_penalty: 10000.0   # Extreme penalty for system overload
+
+# Training Hyperparameters (PPO)
+training:
+  algorithm: "ppo"
+  total_timesteps: 500000
+  save_freq: 10000
+  eval_freq: 5000
+  eval_episodes: 5
+  
+  # PPO Specific Parameters
+  ppo:
+    learning_rate: 0.0003
+    n_steps: 2048
+    batch_size: 64
+    n_epochs: 10
+    gamma: 0.99
+    gae_lambda: 0.95
+    clip_range: 0.2
+    ent_coef: 0.0
+    vf_coef: 0.5
+    max_grad_norm: 0.5
+    policy_kwargs:
+      net_arch: [128, 128, 64]  # Neural network architecture
+
+# Evaluation Settings
+evaluation:
+  episodes: 100
+  render: false
