@@ -27,12 +27,12 @@ class ProjectTracker:
         if not log_file.exists():
             return "Not Started", 0
         
-        # Read last few lines of log
+ # Read last few lines of log
         try:
             with open(log_file, 'r') as f:
                 lines = f.readlines()
                 if len(lines) > 0:
-                    # Look for step indicators
+ # Look for step indicators
                     for line in reversed(lines[-50:]):
                         if "steps" in line.lower():
                             return "Running", len(lines)
@@ -47,7 +47,7 @@ class ProjectTracker:
         print(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
         print("=" * 80)
         
-        # 1. Core Deliverables
+ # 1. Core Deliverables
         print("\n CORE DELIVERABLES")
         print("-" * 80)
         
@@ -69,7 +69,7 @@ class ProjectTracker:
             size_str = f"({size:,} bytes)" if exists else ""
             print(f"  {name:.<50} {status} {size_str}")
         
-        # 2. Training Status
+ # 2. Training Status
         print("\n TRAINING STATUS")
         print("-" * 80)
         
@@ -78,13 +78,13 @@ class ProjectTracker:
         if progress > 0:
             print(f"  Log lines: {progress:,}")
         
-        # Check model checkpoints
+ # Check model checkpoints
         models_dir = self.root / "models"
         if models_dir.exists():
             checkpoints = list(models_dir.glob("ppo_power_grid_*.zip"))
             print(f"  Checkpoints saved: {len(checkpoints)}")
         
-        # 3. Documentation Status
+ # 3. Documentation Status
         print("\n DOCUMENTATION")
         print("-" * 80)
         
@@ -101,11 +101,11 @@ class ProjectTracker:
             status = "" if exists else ""
             print(f"  {name:.<50} {status}")
         
-        # 4. Code Quality
+ # 4. Code Quality
         print("\n CODE QUALITY")
         print("-" * 80)
         
-        # Check for test files
+ # Check for test files
         tests_dir = self.root / "tests"
         if tests_dir.exists():
             test_files = list(tests_dir.glob("test_*.py"))
@@ -113,11 +113,11 @@ class ProjectTracker:
         else:
             print(f"  Test files: 0 (TODO)")
         
-        # Check for deprecated files
+ # Check for deprecated files
         deprecated = list(self.root.glob("*.deprecated"))
         print(f"  Deprecated files cleaned: {len(deprecated)} moved")
         
-        # 5. Readiness Score
+ # 5. Readiness Score
         print("\n READINESS ASSESSMENT")
         print("-" * 80)
         
@@ -139,7 +139,7 @@ class ProjectTracker:
         overall = sum(scores.values()) / len(scores)
         print(f"\n  {'OVERALL READINESS':.<30} {'█' * int(overall/5)}{'░' * (20-int(overall/5))} {overall:>3.0f}%")
         
-        # 6. Next Steps
+ # 6. Next Steps
         print("\n NEXT STEPS")
         print("-" * 80)
         
@@ -154,7 +154,7 @@ class ProjectTracker:
         print("  5. Add unit tests (target 60% coverage)")
         print("  6. Prepare investor deck")
         
-        # 7. Timeline Estimate
+ # 7. Timeline Estimate
         print("\n ESTIMATED TIMELINE TO DEMO-READY")
         print("-" * 80)
         print("  Training complete:     2-3 hours (from now)")

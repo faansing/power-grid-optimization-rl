@@ -39,8 +39,8 @@ power_optimization/
     └── tests/                     # Unit tests (to be added)
 
 DEPRECATED (removed synthetic data):
-├── ❌ train_manhattan.py.deprecated
-└── ❌ data/manhattan_loader.py.deprecated
+├──  train_manhattan.py.deprecated
+└──  data/manhattan_loader.py.deprecated
 ```
 
 ## Key Files for Different Audiences
@@ -64,19 +64,19 @@ DEPRECATED (removed synthetic data):
 ## Project Narrative (Bottom-Up)
 
 ### Layer 1: Data Foundation
-**PJM Real Grid Data** → Credible, verifiable, industry-standard
+**PJM Real Grid Data**→ Credible, verifiable, industry-standard
 
 ### Layer 2: Physics-Based Modeling
-**Power Grid Environment** → Realistic constraints (capacity, ramping, costs)
+**Power Grid Environment**→ Realistic constraints (capacity, ramping, costs)
 
 ### Layer 3: AI Learning
-**PPO Algorithm** → Proven RL method, learns from 35k+ hours
+**PPO Algorithm**→ Proven RL method, learns from 35k+ hours
 
 ### Layer 4: Validation
-**Against Baselines** → 16.7% improvement quantified
+**Against Baselines**→ 16.7% improvement quantified
 
 ### Layer 5: Deployment Ready
-**Web Dashboard + API** → Immediately demonstrable
+**Web Dashboard + API**→ Immediately demonstrable
 
 ## Clean Structure Benefits
 

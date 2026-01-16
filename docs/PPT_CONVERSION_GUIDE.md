@@ -3,12 +3,12 @@
 ## Quick Guide
 
 ### Option 1: Use AI Tools (Recommended)
-1. **Gamma.app** (https://gamma.app)
+1. **Gamma.app**(https://gamma.app)
    - Upload `docs/PITCH_DECK.md`
    - Uses AI to auto-design slides
    - Professional templates included
    
-2. **Beautiful.ai** (https://www.beautiful.ai)
+2. **Beautiful.ai**(https://www.beautiful.ai)
    - Import markdown content
    - AI-powered design
 
@@ -75,21 +75,21 @@ Concentric circles:
 
 ## Key Visuals to Include
 
-1. **Texas Blackout Image** (Slide 2)
+1. **Texas Blackout Image**(Slide 2)
    - News photo or infographic
    
-2. **AI Learning Diagram** (Slide 4)
+2. **AI Learning Diagram**(Slide 4)
    ```
    [Data] → [Neural Network] → [Smart Decisions]
    ```
 
-3. **Cost Comparison Chart** (Slide 5)
+3. **Cost Comparison Chart**(Slide 5)
    - Already described above
    
-4. **Market Growth Line** (Slide 7)
+4. **Market Growth Line**(Slide 7)
    - $15B to $25B by 2030
    
-5. **Timeline Gantt Chart** (Slide 12)
+5. **Timeline Gantt Chart**(Slide 12)
    - 6 months: Beta
    - 12 months: Commercial
    - 18 months: Scale

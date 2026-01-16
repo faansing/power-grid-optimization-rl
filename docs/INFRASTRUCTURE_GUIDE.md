@@ -1,6 +1,6 @@
 # Week 2-3 Technical Infrastructure Guide
 
-##  Docker Deployment
+## Docker Deployment
 
 ### Quick Start
 
@@ -42,7 +42,7 @@ docker stats
 
 ---
 
-##  REST API Usage
+## REST API Usage
 
 ### Starting the API
 
@@ -134,7 +134,7 @@ Visit http://localhost:8000/docs for:
 
 ---
 
-##  Prometheus Monitoring
+## Prometheus Monitoring
 
 ### Accessing Prometheus
 
@@ -183,7 +183,7 @@ groups:
 
 ---
 
-##  Grafana Dashboards
+## Grafana Dashboards
 
 ### Initial Setup
 
@@ -225,7 +225,7 @@ Import via: Dashboards → Import → Upload JSON
 
 ---
 
-##  Testing
+## Testing
 
 ### Run All Tests with Coverage
 
@@ -266,7 +266,7 @@ Missing areas will be shown with line numbers.
 
 ---
 
-##  Troubleshooting
+## Troubleshooting
 
 ### Docker Issues
 
@@ -326,7 +326,7 @@ docker-compose exec prometheus ping app
 
 ---
 
-##  Production Deployment
+## Production Deployment
 
 ### Environment Variables
 
@@ -360,7 +360,7 @@ security = HTTPBearer()
 
 @app.post("/predict")
 async def predict(credentials: HTTPAuthorizationCredentials = Depends(security)):
-    # Validate token
+ # Validate token
     ...
 ```
 
@@ -401,7 +401,7 @@ app:
     replicas: 3
 ```
 
-**Load balancer** (nginx config):
+**Load balancer**(nginx config):
 ```nginx
 upstream api_backend {
     server app1:8000;
@@ -412,7 +412,7 @@ upstream api_backend {
 
 ---
 
-##  Maintenance
+## Maintenance
 
 ### Regular Tasks
 
@@ -443,7 +443,7 @@ docker cp $(docker-compose ps -q prometheus):/tmp/prometheus-backup.tar.gz .
 
 ---
 
-##  Performance Benchmarks
+## Performance Benchmarks
 
 ### Expected Performance
 
@@ -476,7 +476,7 @@ ab -n 1000 -c 10 -T 'application/json' -p request.json http://localhost:8000/pre
 
 ---
 
-##  Additional Resources
+## Additional Resources
 
 - **FastAPI Docs**: https://fastapi.tiangolo.com
 - **Prometheus Guide**: https://prometheus.io/docs/introduction/overview/
@@ -485,7 +485,7 @@ ab -n 1000 -c 10 -T 'application/json' -p request.json http://localhost:8000/pre
 
 ---
 
-##  Checklist for Production
+## Checklist for Production
 
 - [ ] All tests passing (80%+ coverage)
 - [ ] Docker images built and tagged

@@ -5,7 +5,7 @@
 
 ### Slide 1: Title
 
-**AI-Powered Grid Optimization**  
+**AI-Powered Grid Optimization**
 Deep Reinforcement Learning for Economic Dispatch
 
 *Reducing electricity costs by 63% through intelligent scheduling*
@@ -30,10 +30,10 @@ Deep Reinforcement Learning for Economic Dispatch
 
 | Challenge | Traditional | Impact |
 |-----------|-------------|--------|
-| **Renewable Energy** | Fixed rules from 1990s | Can't handle solar/wind volatility |
-| **EV Charging** | No real-time adaptation | Unpredicted demand spikes |
-| **Extreme Weather** | Slow optimization (60min) | Grid failures, blackouts |
-| **Complex Constraints** | Often fails to solve | Manual intervention required |
+| **Renewable Energy**| Fixed rules from 1990s | Can't handle solar/wind volatility |
+| **EV Charging**| No real-time adaptation | Unpredicted demand spikes |
+| **Extreme Weather**| Slow optimization (60min) | Grid failures, blackouts |
+| **Complex Constraints**| Often fails to solve | Manual intervention required |
 
 ---
 
@@ -54,13 +54,13 @@ Deep Reinforcement Learning for Economic Dispatch
 
 ### Slide 5: The Results
 
-**Validated on Real Data** (3,507 hours, PJM 2018)
+**Validated on Real Data**(3,507 hours, PJM 2018)
 
 | Metric | AI (PPO) | Traditional | Improvement |
 |--------|----------|-------------|-------------|
-| **Average Cost** | $1.48M | $4.02M | **63.3% ↓** |
-| **Response Time** | <1 sec | 20-60 min | **60x faster** |
-| **Supply Match** | 91% | 98% | Tunable* |
+| **Average Cost**| $1.48M | $4.02M | **63.3% ↓**|
+| **Response Time**| <1 sec | 20-60 min | **60x faster**|
+| **Supply Match**| 91% | 98% | Tunable* |
 
 *Supply-demand matching can be improved by adjusting reward weights
 
@@ -68,7 +68,7 @@ Deep Reinforcement Learning for Economic Dispatch
 
 ### Slide 6: ROI Example
 
-**For a 1,000 MW System** ($50/MWh average price)
+**For a 1,000 MW System**($50/MWh average price)
 
 Assuming conservative **30% cost reduction**:
 
@@ -151,10 +151,10 @@ Assuming conservative **30% cost reduction**:
 ### Slide 11: Technology Validation
 
 **What We've Proven**:
-- ✅ Algorithm works on real data (PJM 35k hours)
-- ✅ 63% cost reduction validated
-- ✅ Handles realistic constraints
-- ✅ Scalable architecture
+-  Algorithm works on real data (PJM 35k hours)
+-  63% cost reduction validated
+-  Handles realistic constraints
+-  Scalable architecture
 
 **Current Status**: MVP validated, ready for pilots
 
@@ -167,18 +167,18 @@ Assuming conservative **30% cost reduction**:
 
 ### Slide 12: Roadmap
 
-**6 Months** (Beta):
+**6 Months**(Beta):
 - Production-grade testing
 - Docker deployment
 - REST API
 - 1-2 pilot customers
 
-**12 Months** (Commercial):
+**12 Months**(Commercial):
 - 5-10 paying customers
 - Break-even
 - $2-5M ARR
 
-**18-24 Months** (Scale):
+**18-24 Months**(Scale):
 - 15-30 customers
 - $10-20M ARR
 - Series A fundraise
@@ -236,10 +236,10 @@ Assuming conservative **30% cost reduction**:
 
 **We're solving a $7 trillion problem**
 
-✅ **Proven technology**: 63% cost reduction on real data  
-✅ **Huge market**: $15B and growing  
-✅ **Clear ROI**: $131M/year for typical customer  
-✅ **Strong moat**: Data flywheel + first-mover  
+ **Proven technology**: 63% cost reduction on real data  
+ **Huge market**: $15B and growing  
+ **Clear ROI**: $131M/year for typical customer  
+ **Strong moat**: Data flywheel + first-mover  
 
 **Join us in modernizing the power grid with AI.**
 

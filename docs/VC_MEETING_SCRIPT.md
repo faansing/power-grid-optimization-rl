@@ -119,7 +119,7 @@ $7 Trillion grid operations are fundamentally broken in 4 ways:
 
 **Transition**: "Now let's talk about the business opportunity..."
 
-**Market Sizing** (Bottom-up):
+**Market Sizing**(Bottom-up):
 ```
 Tier 1: ISO/RTOs
 ├─ 7 major US operators (PJM, CAISO, ERCOT, etc.)
@@ -174,10 +174,10 @@ LTV/CAC = 17.5x - 70x
 
 **Current Status**:
 > "We're at the MVP stage, but it's a validated MVP:
-> - ✅ 63% cost reduction proven on real grid data  
-> - ✅ 3,507 hours of testing  
-> - ✅ Production-ready codebase  
-> - ✅ Interactive dashboard  
+> -  63% cost reduction proven on real grid data  
+> -  3,507 hours of testing  
+> -  Production-ready codebase  
+> -  Interactive dashboard  
 > -  Currently have 2 utilities in advanced discussions for pilots"
 
 **Slide**: Milestone timeline with checkmarks
@@ -217,7 +217,7 @@ Month 5-6: Validation & Case Study
 **Transition to funding**:
 > "To execute this plan, we're raising $2-3 million in seed funding."
 
-**Use of Funds** (Show slide with pie chart):
+**Use of Funds**(Show slide with pie chart):
 ```
 $2.5M Total Raise
 
@@ -269,17 +269,17 @@ Month 18: Series A raise ($10-15M)
 **Current Team**:
 > "Right now, it's a lean technical team that's proven the concept. Post-funding, we'll aggressively recruit:
 >
-> **Technical Leads** (hiring):
+> **Technical Leads**(hiring):
 > - 2-3 ML Engineers (ex-FAANG, PhD preferred)
 > - 1-2 Power Systems Experts (PE license essential)
 > - 1 DevOps Engineer (Kubernetes, cloud-native)
 >
-> **Business** (hiring):
+> **Business**(hiring):
 > - VP Sales (20+ years in power industry)
 > - 2 BDRs (utility relationships)
 > - 1 Customer Success
 >
-> **Advisors** (in discussions with):
+> **Advisors**(in discussions with):
 > - Former PJM VP of Operations
 > - FERC regulatory expert
 > - Stanford CS professor (RL specialist)
@@ -305,19 +305,19 @@ Month 18: Series A raise ($10-15M)
 
 **Common Questions & Answers**:
 
-**Q: "How are you different from [competitor X]?"**  
+**Q: "How are you different from [competitor X]?"**
 A: "They do forecasting. We do dispatch optimization. Apples and oranges. Forecasting tells you what might happen; we decide what to do about it."
 
-**Q: "What if grid operators don't trust AI?"**  
+**Q: "What if grid operators don't trust AI?"**
 A: "That's why we use shadow mode. Our AI makes recommendations, humans stay in control. After 3-6 months of verified savings, trust builds naturally."
 
-**Q: "Regulatory risk?"**  
+**Q: "Regulatory risk?"**
 A: "We're not replacing NERC/FERC standards, we're optimizing within them. All physical constraints are hard-coded. Regulatory bodies want better tech — we're helping them achieve their goals."
 
-**Q: "Data privacy?"**  
+**Q: "Data privacy?"**
 A: "Grid data isn't sensitive like health data. PJM publishes hourly loads publicly. We sign NDAs for proprietary generator specs, but those never leave customer premises."
 
-**Q: "What if hyperscalers (Google, Amazon) enter?"**  
+**Q: "What if hyperscalers (Google, Amazon) enter?"**
 A: "They could, but grid ops is a specialized domain. They'd need to: (1) Hire power systems experts, (2) Build relationships with conservative utilities, (3) Navigate regulations. We have a 2-3 year head start. More likely, they'd acquire us."
 
 **Your Questions for Them**:
@@ -405,20 +405,20 @@ A: "They could, but grid ops is a specialized domain. They'd need to: (1) Hire p
 ## Body Language & Delivery Tips
 
 ### Do's
-- ✅ **Pause after big numbers**: "63% [2-second pause] cost reduction"
-- ✅ **Lean forward when asking questions**
-- ✅ **Make eye contact with all partners, not just lead**
-- ✅ **Smile when talking about traction**
-- ✅ **Stand for demo** (if presenting to group)
-- ✅ **Use hand gestures** for "before/after" comparisons
+-  **Pause after big numbers**: "63% [2-second pause] cost reduction"
+-  **Lean forward when asking questions**
+-  **Make eye contact with all partners, not just lead**
+-  **Smile when talking about traction**
+-  **Stand for demo**(if presenting to group)
+-  **Use hand gestures**for "before/after" comparisons
 
 ### Don'ts
-- ❌ Rush through slides
-- ❌ Read bullet points verbatim
-- ❌ Over-apologize for being early-stage
-- ❌ Get defensive about weaknesses
-- ❌ Use jargon without explaining
-- ❌ Go over time (respect their schedule)
+-  Rush through slides
+-  Read bullet points verbatim
+-  Over-apologize for being early-stage
+-  Get defensive about weaknesses
+-  Use jargon without explaining
+-  Go over time (respect their schedule)
 
 ### Handling Pressure
 **If they challenge you**:

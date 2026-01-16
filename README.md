@@ -6,27 +6,27 @@
 [![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)](https://github.com/)
 [![Docker](https://img.shields.io/badge/Docker-Ready-blue)](https://www.docker.com/)
 
-> **A production-grade reinforcement learning system that optimizes power grid dispatch in real-time.** 
-> Reduces operational costs by **63%** while maintaining 97% supply-demand matching reliability.
+> **A production-grade reinforcement learning system that optimizes power grid dispatch in real-time.**
+> Reduces operational costs by **63%**while maintaining 97% supply-demand matching reliability.
 
 ---
 
-##  Overview
+## Overview
 
 Modern power grids face a crisis: integrating volatile renewable energy while maintaining stability. Traditional optimization methods (SCUC/SCED) are slow and rigid.
 
-This project deploys a **Proximal Policy Optimization (PPO)** agent trained on **35,000 hours** of real-world PJM Interconnection data. It makes sub-second dispatch decisions, balancing cost, reliability, and physical constraints.
+This project deploys a **Proximal Policy Optimization (PPO)**agent trained on **35,000 hours**of real-world PJM Interconnection data. It makes sub-second dispatch decisions, balancing cost, reliability, and physical constraints.
 
 ### Key Features
-- ** High Performance**: <100ms inference latency via FastAPI.
-- ** Proven Results**: 63% cost reduction vs greedy baselines (validated on FY2018 data).
-- **️ Robust Reliability**: Multi-objective reward function ensures stability.
-- **⚡ Production Ready**: Dockerized, Prometheus monitoring, 80% test coverage.
-- ** Interactive Dashboard**: Real-time visualization of agent decisions.
+- **High Performance**: <100ms inference latency via FastAPI.
+- **Proven Results**: 63% cost reduction vs greedy baselines (validated on FY2018 data).
+- **Robust Reliability**: Multi-objective reward function ensures stability.
+- **Production Ready**: Dockerized, Prometheus monitoring, 80% test coverage.
+- **Interactive Dashboard**: Real-time visualization of agent decisions.
 
 ---
 
-## ️ Architecture
+## Architecture
 
 The system follows a modern MLOps architecture:
 
@@ -49,7 +49,7 @@ graph TD
 
 ---
 
-##  Quick Start
+## Quick Start
 
 ### 1. Installation
 
@@ -97,21 +97,21 @@ curl -X POST http://localhost:8000/predict \
 
 ---
 
-##  Performance Benchmarks
+## Performance Benchmarks
 
 Validated on a held-out test set of 3,507 hours (PJM 2018 Data).
 
 | Metric | AI Agent (PPO) | Baseline (Greedy) | Improvement |
 |--------|----------------|-------------------|-------------|
-| **Weekly Cost** | **$1.48M** | $4.02M | **63.27% ↓** |
-| **Response Time** | **< 1 sec** | 20-60 min | **60x Faster** |
-| **Supply Match** | **94.5%** | 98.0% | Adjustable* |
+| **Weekly Cost**| **$1.48M**| $4.02M | **63.27% ↓**|
+| **Response Time**| **< 1 sec**| 20-60 min | **60x Faster**|
+| **Supply Match**| **94.5%**| 98.0% | Adjustable* |
 
 *\*Note: Supply matching can be tuned via `reward_weights` in `config.yaml`.*
 
 ---
 
-##  Project Structure
+## Project Structure
 
 ```
 power_optimization/
@@ -131,7 +131,7 @@ power_optimization/
 
 ---
 
-##  Documentation
+## Documentation
 
 - **[Executive Summary](README_EXECUTIVE.md)**: The "Hero's Journey" narrative & business case.
 - **[Infrastructure Guide](docs/INFRASTRUCTURE_GUIDE.md)**: Deployment, stability & API usage.
@@ -140,7 +140,7 @@ power_optimization/
 
 ---
 
-##  Contributing
+## Contributing
 
 We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details on:
 1. Forking the repository
@@ -150,10 +150,10 @@ We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for deta
 
 ---
 
-##  License
+## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
 
-**built with ❤️ for a cleaner, smarter grid.**
+**built with  for a cleaner, smarter grid.**

@@ -116,29 +116,29 @@
 ## Post-Production (Optional)
 
 ### Free Tools
-- **DaVinci Resolve** (Mac/Win): Professional editing
-- **iMovie** (Mac): Simple cuts and titles
-- **Shotcut** (All): Open-source editor
+- **DaVinci Resolve**(Mac/Win): Professional editing
+- **iMovie**(Mac): Simple cuts and titles
+- **Shotcut**(All): Open-source editor
 
 ### Quick Edits
-1. **Add Title Slide** (5 sec at start):
+1. **Add Title Slide**(5 sec at start):
    ```
    AI-Powered Grid Optimization
    Deep RL Demo
    ```
 
-2. **Add Captions** (optional):
+2. **Add Captions**(optional):
    - Use auto-caption tools
    - Export SRT file
    - Improves accessibility
 
-3. **Add End Slate** (5 sec at end):
+3. **Add End Slate**(5 sec at end):
    ```
    Contact: [Your email]
    Learn more: [Website]
    ```
 
-4. **Background Music** (very low volume):
+4. **Background Music**(very low volume):
    - Use royalty-free: YouTube Audio Library
    - Keep it subtle - voice is priority
 
@@ -169,24 +169,24 @@
 ## Tips for Great Demo
 
 ### Voice
-- **Speak clearly** and at moderate pace
-- **Pause** after key numbers (63%, $131M)
-- **Enthusiasm** but professional tone
-- **Practice** script 2-3 times first
+- **Speak clearly**and at moderate pace
+- **Pause**after key numbers (63%, $131M)
+- **Enthusiasm**but professional tone
+- **Practice**script 2-3 times first
 
 ### Mouse Movement
-- **Slow and deliberate** - no jerky movements
-- **Hover meaningfully** - emphasize what you're pointing at
-- **Pause** to let viewer absorb charts
+- **Slow and deliberate**- no jerky movements
+- **Hover meaningfully**- emphasize what you're pointing at
+- **Pause**to let viewer absorb charts
 
 ### Mistakes
-- **Don't restart** for minor errors
+- **Don't restart**for minor errors
 - Can edit out pauses in post
 - Authentic > perfect
 
 ### Accessibility
 - **High contrast**: Dashboard already has good dark theme
-- **Large cursor** (optional): System Settings → Accessibility
+- **Large cursor**(optional): System Settings → Accessibility
 - **Captions**: Add if sharing widely
 
 ---

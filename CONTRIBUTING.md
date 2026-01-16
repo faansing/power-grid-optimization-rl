@@ -2,7 +2,7 @@
 
 Thank you for your interest in contributing! We welcome efforts to improve the reliability, efficiency, and capabilities of this AI-driven grid optimization platform.
 
-##  How to Contribute
+## How to Contribute
 
 ### 1. Reporting Bugs
 - Ensure the bug was not already reported by searching on GitHub under [Issues].
@@ -20,7 +20,7 @@ Thank you for your interest in contributing! We welcome efforts to improve the r
 5. Make sure your code lints.
 6. Issue that pull request!
 
-##  Development Setup
+## Development Setup
 
 ```bash
 # Clone your fork
@@ -33,11 +33,11 @@ pip install -r requirements.txt
 pytest tests/
 ```
 
-##  Coding Standards
+## Coding Standards
 
 - **Style**: We follow PEP 8.
 - **Docstrings**: All functions and classes must have Google-style docstrings.
 - **Type Hinting**: Use Python type hints for all function arguments and return values.
 
-##  License
+## License
 By contributing, you agree that your contributions will be licensed under its MIT License.

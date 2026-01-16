@@ -1,15 +1,15 @@
 # AI-Powered Grid Optimization
 ## When Winter Storms Meet Artificial Intelligence
 
-> **February 2021, Texas** — As temperatures plummeted to -20°C, 4.5 million homes went dark. 246 people lost their lives. The economic damage: $195 billion. The root cause? Grid operators couldn't adapt their dispatch algorithms fast enough to handle the crisis.
+> **February 2021, Texas**— As temperatures plummeted to -20°C, 4.5 million homes went dark. 246 people lost their lives. The economic damage: $195 billion. The root cause? Grid operators couldn't adapt their dispatch algorithms fast enough to handle the crisis.
 >
-> **What if AI had been watching?** What if it had learned from 35,000 hours of grid operations? What if it could make decisions in under a second instead of an hour?
+> **What if AI had been watching?**What if it had learned from 35,000 hours of grid operations? What if it could make decisions in under a second instead of an hour?
 >
 > We built that AI. It works. And it could have saved Texas.
 
 ---
 
-##  Table of Contents
+## Table of Contents
 
 1. [The Crisis](#the-crisis)
 2. [Our Solution](#our-solution)
@@ -26,12 +26,12 @@
 
 Every year, power grids worldwide face unprecedented challenges:
 
-- **️ Climate Extremes**: Heat waves, cold snaps, wildfires
-- **⚡ Renewable Volatility**: Solar and wind fluctuate every 15 minutes
-- ** EV Uncertainty**: Charging patterns are unpredictable
-- ** Economic Pressure**: Utilities must cut costs without compromising reliability
+- **Climate Extremes**: Heat waves, cold snaps, wildfires
+- **Renewable Volatility**: Solar and wind fluctuate every 15 minutes
+- **EV Uncertainty**: Charging patterns are unpredictable
+- **Economic Pressure**: Utilities must cut costs without compromising reliability
 
-**The result?** 
+**The result?**
 - $150B annual losses from outages (US alone)
 - 20-30% energy waste from inefficient dispatch
 - Inability to integrate renewables at scale
@@ -43,10 +43,10 @@ Grid operators rely on optimization algorithms developed in the 1990s:
 
 | Problem | Traditional Solver | Impact |
 |---------|-------------------|---------|
-| **Speed** | 20-60 minutes to recompute | Too slow for real-time crises |
-| **Rigidity** | Fixed rules, can't learn | Fails with modern complexity |
-| **Fragility** | Often no solution found | Requires manual intervention |
-| **Cost** | Optimizes single objective | Misses multi-dimensional savings |
+| **Speed**| 20-60 minutes to recompute | Too slow for real-time crises |
+| **Rigidity**| Fixed rules, can't learn | Fails with modern complexity |
+| **Fragility**| Often no solution found | Requires manual intervention |
+| **Cost**| Optimizes single objective | Misses multi-dimensional savings |
 
 When Texas froze in 2021, these systems couldn't adapt. **People died because algorithms couldn't learn.**
 
@@ -85,7 +85,7 @@ Instead of programming rules, we let AI discover patterns.
 
 ### Validated on Real Operations
 
-We didn't test on toy problems. We tested on **PJM Interconnection** — one of the world's largest grid operators.
+We didn't test on toy problems. We tested on **PJM Interconnection**— one of the world's largest grid operators.
 
 **Dataset**:
 - **Training**: 24,544 hours (2015-2017)
@@ -99,17 +99,17 @@ We didn't test on toy problems. We tested on **PJM Interconnection** — one of 
 
 | Metric | Our AI (PPO) | Traditional (Greedy) | Improvement |
 |--------|--------------|----------------------|-------------|
-| **Average Cost** | **$1.48M/week** | $4.02M/week | **63.3% ↓** |
-| **Cost per MWh** | **$15.45** | $42.10 | **63.3% ↓** |
-| **Response Time** | **<1 second** | 20-60 minutes | **60x faster** |
-| **Supply-Demand Match** | 91%* | 98% | Tunable** |
+| **Average Cost**| **$1.48M/week**| $4.02M/week | **63.3% ↓**|
+| **Cost per MWh**| **$15.45**| $42.10 | **63.3% ↓**|
+| **Response Time**| **<1 second**| 20-60 minutes | **60x faster**|
+| **Supply-Demand Match**| 91%* | 98% | Tunable**|
 
 *Can be improved to 97%+ by adjusting reward weights  
 **We deliberately optimized for cost in this demo; reliability is easily tunable
 
 ### Side-by-Side Comparison
 
-**168-hour dispatch trajectory** (view in [Dashboard](http://localhost:8080)):
+**168-hour dispatch trajectory**(view in [Dashboard](http://localhost:8080)):
 
 - **AI**: Supply closely tracks demand, minimal overshoot
 - **Greedy**: Frequent oversupply, wasted capacity
@@ -134,7 +134,7 @@ We didn't test on toy problems. We tested on **PJM Interconnection** — one of 
 ### Mid-Term: Transform US Grid Economics
 
 **Within 2 years**, scale to 10-15 major utilities:
-- Annual savings: **$18B** (5% of $360B US grid costs)
+- Annual savings: **$18B**(5% of $360B US grid costs)
 - Enable 40% renewable penetration (current: 20%)
 - Reduce carbon emissions by 100M tons/year
 - Create case studies for regulatory approval
@@ -155,18 +155,18 @@ We didn't test on toy problems. We tested on **PJM Interconnection** — one of 
 
 ### ROI Example: 1,000 MW System
 
-**Assumptions** (conservative):
+**Assumptions**(conservative):
 - Capacity: 1,000 MW
 - Annual generation: 8,760,000 MWh
 - Average price: $50/MWh
 - Annual cost: **$438,000,000**
 
-**Our AI saves 30%** (conservative vs 63% proven):
+**Our AI saves 30%**(conservative vs 63% proven):
 - **Annual savings: $131,400,000**
 - **3-year value: $394,200,000**
 - **Payback period: <3 months**
 
-**Your revenue share** (20-30% of savings):
+**Your revenue share**(20-30% of savings):
 - Annual: $26-39M per customer
 - 10 customers: $260-390M/year
 
@@ -207,26 +207,26 @@ We didn't test on toy problems. We tested on **PJM Interconnection** — one of 
 
 ### Key Components
 
-**Environment** (`environment/power_env.py`):
+**Environment**(`environment/power_env.py`):
 - Gymnasium-compliant RL environment
 - 24-dimensional state space (demand forecasts, generator states, costs)
 - 5-dimensional continuous action space (generator adjustments)
 - Physics-based constraints (capacity, ramping rates, minimum stable output)
 - Multi-objective reward (cost, reliability, stability)
 
-**Agent** (`agent/ppo_agent.py`):
+**Agent**(`agent/ppo_agent.py`):
 - Stable-Baselines3 PPO implementation
 - Policy network: 3-layer MLP [128, 128, 64]
 - Value network: Shared architecture
 - Hyperparameters tuned for grid dynamics
 
-**Training** (`training/train.py`):
+**Training**(`training/train.py`):
 - 500,000 timesteps (≈3,000 episodes)
 - Checkpointing every 10k steps
 - TensorBoard logging
 - Baseline comparisons (Greedy, Rule-Based, Random)
 
-**Evaluation** (`training/evaluate.py`):
+**Evaluation**(`training/evaluate.py`):
 - 100-episode Monte Carlo evaluation
 - Statistical significance testing
 - Comprehensive metrics (cost, reliability, gap, trajectory)
@@ -260,10 +260,10 @@ We didn't test on toy problems. We tested on **PJM Interconnection** — one of 
 
 | Competitor | Approach | Weakness | Our Edge |
 |------------|----------|----------|----------|
-| **ABB, Siemens** | Traditional SCUC/SCED | 30-min cycle, rigid | 60x faster, learns |
-| **McKinsey, BCG** | Custom consulting | Not scalable, $5M+ | SaaS platform, $500k |
-| **Academic Labs** | Research prototypes | No commercialization | Production-ready |
-| **Startups** | Forecasting only | Doesn't optimize dispatch | End-to-end solution |
+| **ABB, Siemens**| Traditional SCUC/SCED | 30-min cycle, rigid | 60x faster, learns |
+| **McKinsey, BCG**| Custom consulting | Not scalable, $5M+ | SaaS platform, $500k |
+| **Academic Labs**| Research prototypes | No commercialization | Production-ready |
+| **Startups**| Forecasting only | Doesn't optimize dispatch | End-to-end solution |
 
 ### Our Moat
 
@@ -276,7 +276,7 @@ We didn't test on toy problems. We tested on **PJM Interconnection** — one of 
 
 ## Roadmap
 
-###  Current Status (MVP Complete)
+### Current Status (MVP Complete)
 
 - [x] Core algorithm validated on real data
 - [x] 63% cost reduction proven
@@ -285,7 +285,7 @@ We didn't test on toy problems. We tested on **PJM Interconnection** — one of 
 - [x] Technical documentation
 - [x] Unit test coverage (50-60%)
 
-###  Next 6 Months (Beta)
+### Next 6 Months (Beta)
 
 - [ ] Production hardening (80%+ test coverage)
 - [ ] Docker containerization
@@ -293,7 +293,7 @@ We didn't test on toy problems. We tested on **PJM Interconnection** — one of 
 - [ ] Real-time monitoring (Prometheus/Grafana)
 - [ ] 1-2 pilot customers (shadow mode)
 
-###  12-18 Months (Commercial Launch)
+### 12-18 Months (Commercial Launch)
 
 - [ ] Full commercial deployment
 - [ ] 5-10 paying customers
@@ -301,7 +301,7 @@ We didn't test on toy problems. We tested on **PJM Interconnection** — one of 
 - [ ] Regulatory compliance (NERC CIP)
 - [ ] Series A fundraise
 
-###  24-36 Months (Scale)
+### 24-36 Months (Scale)
 
 - [ ] 30+ customers across US + EU
 - [ ] $40-60M ARR
@@ -407,22 +407,22 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) _(coming soon)_
 
 ## FAQs
 
-**Q: How is this different from traditional optimization?**  
+**Q: How is this different from traditional optimization?**
 A: Traditional methods use fixed mathematical programs (SCUC/SCED) that take 20-60 minutes and often fail. We use Deep RL that learns patterns from data and decides in <1 second.
 
-**Q: What if the grid changes?**  
+**Q: What if the grid changes?**
 A: RL adapts continuously. As new data arrives, the model fine-tunes. No need to reprogram rules.
 
-**Q: How do you ensure reliability?**  
+**Q: How do you ensure reliability?**
 A: Multi-objective reward balances cost vs reliability. Regulatory constraints are hard-coded. We can tune for any priority (currently showing cost-optimized version).
 
-**Q: What about cybersecurity?**  
+**Q: What about cybersecurity?**
 A: Shadow mode deployment means decisions are recommendations, not direct control. Production system would be air-gapped with strict access controls.
 
 **Q: Has this been tested in production**?  
 A: Not yet. Current validation is on historical data. Pilots will run in shadow mode for 3-6 months before any live deployment.
 
-**Q: What's the carbon impact?**  
+**Q: What's the carbon impact?**
 A: By reducing over-generation, we directly cut emissions. We estimate 5-10% carbon reduction per grid (100M tons/year at scale).
 
 ---
@@ -487,6 +487,6 @@ Over 168 hours (1 week), AI saves $2.54M compared to greedy baseline.
 
 ---
 
-**Built with ❤️ to prevent the next grid crisis**
+**Built with  to prevent the next grid crisis**
 
 *Last updated: January 2026*
