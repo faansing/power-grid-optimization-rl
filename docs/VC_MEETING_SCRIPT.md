@@ -178,7 +178,7 @@ LTV/CAC = 17.5x - 70x
 > - ✅ 3,507 hours of testing  
 > - ✅ Production-ready codebase  
 > - ✅ Interactive dashboard  
-> - 🔄 Currently have 2 utilities in advanced discussions for pilots"
+> -  Currently have 2 utilities in advanced discussions for pilots"
 
 **Slide**: Milestone timeline with checkmarks
 
@@ -483,4 +483,4 @@ CONTACT
 
 **Final tip**: Practice this pitch until you can deliver it flawlessly even if woken up at 3am. The best pitches feel effortless.
 
-🚀 Good luck!
+ Good luck!

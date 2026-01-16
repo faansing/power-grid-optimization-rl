@@ -9,7 +9,7 @@
 
 ---
 
-## 📖 Table of Contents
+##  Table of Contents
 
 1. [The Crisis](#the-crisis)
 2. [Our Solution](#our-solution)
@@ -26,10 +26,10 @@
 
 Every year, power grids worldwide face unprecedented challenges:
 
-- **🌡️ Climate Extremes**: Heat waves, cold snaps, wildfires
+- **️ Climate Extremes**: Heat waves, cold snaps, wildfires
 - **⚡ Renewable Volatility**: Solar and wind fluctuate every 15 minutes
-- **🚗 EV Uncertainty**: Charging patterns are unpredictable
-- **💰 Economic Pressure**: Utilities must cut costs without compromising reliability
+- ** EV Uncertainty**: Charging patterns are unpredictable
+- ** Economic Pressure**: Utilities must cut costs without compromising reliability
 
 **The result?** 
 - $150B annual losses from outages (US alone)
@@ -285,7 +285,7 @@ We didn't test on toy problems. We tested on **PJM Interconnection** — one of 
 - [x] Technical documentation
 - [x] Unit test coverage (50-60%)
 
-### 🚀 Next 6 Months (Beta)
+###  Next 6 Months (Beta)
 
 - [ ] Production hardening (80%+ test coverage)
 - [ ] Docker containerization
@@ -293,7 +293,7 @@ We didn't test on toy problems. We tested on **PJM Interconnection** — one of 
 - [ ] Real-time monitoring (Prometheus/Grafana)
 - [ ] 1-2 pilot customers (shadow mode)
 
-### 🎯 12-18 Months (Commercial Launch)
+###  12-18 Months (Commercial Launch)
 
 - [ ] Full commercial deployment
 - [ ] 5-10 paying customers
@@ -301,7 +301,7 @@ We didn't test on toy problems. We tested on **PJM Interconnection** — one of 
 - [ ] Regulatory compliance (NERC CIP)
 - [ ] Series A fundraise
 
-### 🌍 24-36 Months (Scale)
+###  24-36 Months (Scale)
 
 - [ ] 30+ customers across US + EU
 - [ ] $40-60M ARR
@@ -453,10 +453,10 @@ PJM Interconnection hourly load data is publicly available and used under their 
 
 **Questions? Want to pilot? Interested in investing?**
 
-- 📧 Email: [your-email@example.com]
-- 🌐 Website: [yourwebsite.com]
-- 💼 LinkedIn: [your-linkedin]
-- 📅 Schedule a call: [calendly-link]
+-  Email: [your-email@example.com]
+-  Website: [yourwebsite.com]
+-  LinkedIn: [your-linkedin]
+-  Schedule a call: [calendly-link]
 
 **Location**: [Your City], USA  
 **Status**: Seeking pilots + seed funding  

@@ -2,40 +2,40 @@
 
 ```
 power_optimization/
-├── 📊 DATA
+├──  DATA
 │   ├── data/
 │   │   ├── data_loader.py          # PJM real data loader
 │   │   ├── preprocessor.py         # Feature engineering
 │   │   └── pjm_hourly.csv         # Real grid data (35k hours)
 │   
-├── 🧠 CORE ALGORITHM
+├──  CORE ALGORITHM
 │   ├── environment/
 │   │   └── power_env.py           # Gymnasium RL environment
 │   ├── agent/
 │   │   ├── ppo_agent.py           # PPO implementation
 │   │   └── baseline_policies.py  # Comparison baselines
 │   
-├── 🏃 TRAINING & EVALUATION
+├──  TRAINING & EVALUATION
 │   ├── training/
 │   │   ├── train.py               # Training script
 │   │   └── evaluate.py            # Evaluation framework
 │   ├── models/                    # Saved models
 │   └── logs/                      # Training logs + TensorBoard
 │   
-├── 📈 VISUALIZATION
+├──  VISUALIZATION
 │   ├── dashboard/
 │   │   ├── index.html             # Web interface
 │   │   ├── styles.css
 │   │   └── app.js
 │   └── reports/                   # Evaluation results
 │   
-├── 📝 DOCUMENTATION
+├──  DOCUMENTATION
 │   ├── README.md                  # Technical documentation
 │   ├── README_EXECUTIVE.md        # Business/investor facing ⭐
 │   ├── config.yaml                # Configuration
 │   └── requirements.txt           # Dependencies
 │   
-└── 🧪 QUALITY ASSURANCE
+└──  QUALITY ASSURANCE
     └── tests/                     # Unit tests (to be added)
 
 DEPRECATED (removed synthetic data):

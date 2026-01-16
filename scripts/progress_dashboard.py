@@ -48,7 +48,7 @@ class ProjectTracker:
         print("=" * 80)
         
         # 1. Core Deliverables
-        print("\n📦 CORE DELIVERABLES")
+        print("\n CORE DELIVERABLES")
         print("-" * 80)
         
         deliverables = {
@@ -70,7 +70,7 @@ class ProjectTracker:
             print(f"  {name:.<50} {status} {size_str}")
         
         # 2. Training Status
-        print("\n🏃 TRAINING STATUS")
+        print("\n TRAINING STATUS")
         print("-" * 80)
         
         status, progress = self.check_training_status()
@@ -85,7 +85,7 @@ class ProjectTracker:
             print(f"  Checkpoints saved: {len(checkpoints)}")
         
         # 3. Documentation Status
-        print("\n📝 DOCUMENTATION")
+        print("\n DOCUMENTATION")
         print("-" * 80)
         
         docs = {
@@ -102,7 +102,7 @@ class ProjectTracker:
             print(f"  {name:.<50} {status}")
         
         # 4. Code Quality
-        print("\n🧪 CODE QUALITY")
+        print("\n CODE QUALITY")
         print("-" * 80)
         
         # Check for test files
@@ -118,7 +118,7 @@ class ProjectTracker:
         print(f"  Deprecated files cleaned: {len(deprecated)} moved")
         
         # 5. Readiness Score
-        print("\n🎯 READINESS ASSESSMENT")
+        print("\n READINESS ASSESSMENT")
         print("-" * 80)
         
         scores = {
@@ -140,7 +140,7 @@ class ProjectTracker:
         print(f"\n  {'OVERALL READINESS':.<30} {'█' * int(overall/5)}{'░' * (20-int(overall/5))} {overall:>3.0f}%")
         
         # 6. Next Steps
-        print("\n📋 NEXT STEPS")
+        print("\n NEXT STEPS")
         print("-" * 80)
         
         if status == "Not Started":
@@ -165,7 +165,7 @@ class ProjectTracker:
         print("  TOTAL:                ~6-9 hours (1 working day)")
         
         print("\n" + "=" * 80)
-        print("💡 TIP: Run this script anytime to check progress")
+        print(" TIP: Run this script anytime to check progress")
         print("   python scripts/progress_dashboard.py")
         print("=" * 80 + "\n")
 

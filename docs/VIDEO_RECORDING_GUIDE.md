@@ -257,4 +257,4 @@ If you prefer no narration:
 
 **Recommendation**: Start with QuickTime screen recording + narration. Simple, fast, professional results.
 
-Good luck! 🎥
+Good luck! 

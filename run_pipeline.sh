@@ -77,21 +77,21 @@ if os.path.exists(results_path):
     with open(results_path, 'r') as f:
         results = json.load(f)
     
-    print('\n✅ Evaluation Complete! Key Results:')
+    print('\n Evaluation Complete! Key Results:')
     print(f\"  PPO-RL Avg Cost: \${results['ppo_rl']['mean_cost']:.2f}\")
     if 'greedy' in results:
         print(f\"  Greedy Avg Cost: \${results['greedy']['mean_cost']:.2f}\")
         improvement = (results['greedy']['mean_cost'] - results['ppo_rl']['mean_cost']) / results['greedy']['mean_cost'] * 100
         print(f\"  Cost Savings: {improvement:.2f}%\")
 else:
-    print('⚠️  Evaluation results not found')
+    print('  Evaluation results not found')
 "
 
 echo ""
 echo "Step 5/5: Launching Visualization"
 echo "=============================="
 echo ""
-echo "✅ Pipeline Execution Complete!"
+echo " Pipeline Execution Complete!"
 echo ""
 echo "View Results:"
 echo "  1. TensorBoard: tensorboard --logdir logs/tensorboard"
