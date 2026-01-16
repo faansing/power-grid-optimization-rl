@@ -30,6 +30,9 @@ class PowerDataLoader:
         self.config = config['data']
         self.dataset_url = self.config.get('dataset_url', '')
         self.local_path = self.config['local_path']
+        self.train_ratio = self.config.get('train_ratio', 0.7)
+        self.val_ratio = self.config.get('val_ratio', 0.15)
+        self.test_ratio = self.config.get('test_ratio', 0.15)
 
     def download_data(self) -> None:
         """
@@ -103,13 +106,20 @@ class PowerDataLoader:
 
             # Ensure timestamp processing
             if 'timestamp' in df.columns:
-                 df['timestamp'] = pd.to_datetime(df['timestamp'])
+                 df['datetime'] = pd.to_datetime(df['timestamp'])
+            elif 'Date' in df.columns:
+                 df['datetime'] = pd.to_datetime(df['Date'])
             
             # Simple missing value handling
             df['load_mw'] = df['load_mw'].interpolate(method='linear')
             
-            logger.info(f"Data loaded successfully. Shape: {df.shape}")
-            return df
+            # Select and sort
+            if 'datetime' in df.columns:
+                df = df.sort_values('datetime').reset_index(drop=True)
+                logger.info(f"Data loaded successfully. Shape: {df.shape}")
+                return df[['datetime', 'load_mw']]
+            else:
+                raise ValueError("Could not identify datetime column")
 
         except Exception as e:
             logger.error(f"Error loading data: {e}")

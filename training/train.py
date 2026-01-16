@@ -35,6 +35,7 @@ def main():
     parser = argparse.ArgumentParser(description='Train Power Grid RL Agent')
     parser.add_argument('--config', type=str, default='config.yaml', help='Path to config file')
     parser.add_argument('--steps', type=int, help='Override total training timesteps')
+    parser.add_argument('--quick-test', action='store_true', help='Run in quick test mode')
     args = parser.parse_args()
 
     # 1. Load Configuration
@@ -43,9 +44,14 @@ def main():
         config = yaml.safe_load(f)
 
     # Override steps if provided via CLI
-    if args.steps:
         config['training']['total_timesteps'] = args.steps
         logger.info(f"Overriding training steps to: {args.steps}")
+
+    if args.quick_test:
+        logger.info("Quick test mode enabled")
+        config['training']['total_timesteps'] = 50000
+        config['training']['save_freq'] = 1000
+        config['training']['eval_freq'] = 1000
 
     # 2. Data Preparation
     logger.info("Initializing Data Loader...")

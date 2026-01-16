@@ -1,1 +1,3 @@
-"""空文件占位符"""
+"""
+Agent package initialization.
+"""

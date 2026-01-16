@@ -1,38 +1,38 @@
 #!/bin/bash
-# 一键运行完整pipeline
+# Run the full RL pipeline
 
-set -e  # 遇到错误立即退出
+set -e  # Exit immediately if a command exits with a non-zero status.
 
 echo "=============================="
-echo "电力供应优化RL系统 - 完整Pipeline"
+echo "Power Grid Optimization RL System - Full Pipeline"
 echo "=============================="
 
-# 检查Python环境
+# Check Python environment
 if ! command -v python3 &> /dev/null; then
-    echo "错误: 未找到python3"
+    echo "Error: python3 not found"
     exit 1
 fi
 
 echo ""
-echo "步骤 0/5: 检查依赖"
+echo "Step 0/5: Checking Dependencies"
 echo "=============================="
 
-# 检查requirements.txt
+# Check requirements.txt
 if [ ! -f "requirements.txt" ]; then
-    echo "错误: 未找到requirements.txt"
+    echo "Error: requirements.txt not found"
     exit 1
 fi
 
-# 询问是否安装依赖
-read -p "是否安装Python依赖? (y/n) " -n 1 -r
+# Ask to install dependencies
+read -p "Install Python dependencies? (y/n) " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-    echo "安装依赖..."
+    echo "Installing dependencies..."
     pip3 install -r requirements.txt
 fi
 
 echo ""
-echo "步骤 1/5: 数据下载"
+echo "Step 1/5: Data Download"
 echo "=============================="
 python3 -c "
 import sys
@@ -45,63 +45,63 @@ with open('config.yaml', 'r', encoding='utf-8') as f:
 
 loader = PowerDataLoader(config)
 loader.download_data()
-print('数据准备完成！')
+print('Data preparation complete!')
 "
 
 echo ""
-echo "步骤 2/5: 快速训练 (50k steps)"
+echo "Step 2/5: Quick Training (50k steps)"
 echo "=============================="
-echo "注意: 这是快速演示模式"
-echo "生产环境建议使用: python3 training/train.py --steps 1000000"
+echo "Note: This is a quick demo mode."
+echo "For production, use: python3 training/train.py --steps 1000000"
 echo ""
 
 python3 training/train.py --quick-test
 
 echo ""
-echo "步骤 3/5: 模型评估"
+echo "Step 3/5: Model Evaluation"
 echo "=============================="
 
 python3 training/evaluate.py --episodes 20
 
 echo ""
-echo "步骤 4/5: 生成报告"
+echo "Step 4/5: Generating Reports"
 echo "=============================="
 
 python3 -c "
 import json
 import os
 
-# 检查评估结果
+# Check evaluation results
 results_path = 'reports/evaluation_results.json'
 if os.path.exists(results_path):
     with open(results_path, 'r') as f:
         results = json.load(f)
     
-    print('\n✅ 评估完成！主要结果:')
-    print(f\"  PPO-RL 平均成本: \${results['ppo_rl']['mean_cost']:.2f}\")
-    print(f\"  Greedy 平均成本: \${results['greedy']['mean_cost']:.2f}\")
-    
-    improvement = (results['greedy']['mean_cost'] - results['ppo_rl']['mean_cost']) / results['greedy']['mean_cost'] * 100
-    print(f\"  成本节省: {improvement:.2f}%\")
+    print('\n✅ Evaluation Complete! Key Results:')
+    print(f\"  PPO-RL Avg Cost: \${results['ppo_rl']['mean_cost']:.2f}\")
+    if 'greedy' in results:
+        print(f\"  Greedy Avg Cost: \${results['greedy']['mean_cost']:.2f}\")
+        improvement = (results['greedy']['mean_cost'] - results['ppo_rl']['mean_cost']) / results['greedy']['mean_cost'] * 100
+        print(f\"  Cost Savings: {improvement:.2f}%\")
 else:
-    print('⚠️  未找到评估结果')
+    print('⚠️  Evaluation results not found')
 "
 
 echo ""
-echo "步骤 5/5: 启动可视化"
+echo "Step 5/5: Launching Visualization"
 echo "=============================="
 echo ""
-echo "✅ Pipeline执行完成！"
+echo "✅ Pipeline Execution Complete!"
 echo ""
-echo "查看结果:"
+echo "View Results:"
 echo "  1. TensorBoard: tensorboard --logdir logs/tensorboard"
-echo "  2. 可视化界面: cd dashboard && python3 -m http.server 8080"
-echo "  3. 评估报告: cat reports/evaluation_results.json"
+echo "  2. Dashboard: cd dashboard && python3 -m http.server 8080"
+echo "  3. Report: cat reports/evaluation_results.json"
 echo ""
-echo "可视化服务即将启动..."
+echo "Starting visualization server..."
 sleep 2
 
 cd dashboard
-echo "正在 http://localhost:8080 启动服务器..."
-echo "按 Ctrl+C 停止服务"
+echo "Starting server at http://localhost:8080..."
+echo "Press Ctrl+C to stop"
 python3 -m http.server 8080
