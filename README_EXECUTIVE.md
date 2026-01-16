@@ -276,7 +276,7 @@ We didn't test on toy problems. We tested on **PJM Interconnection** — one of 
 
 ## Roadmap
 
-### ✅ Current Status (MVP Complete)
+###  Current Status (MVP Complete)
 
 - [x] Core algorithm validated on real data
 - [x] 63% cost reduction proven

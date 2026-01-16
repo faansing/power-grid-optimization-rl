@@ -39,5 +39,5 @@ pytest tests/
 - **Docstrings**: All functions and classes must have Google-style docstrings.
 - **Type Hinting**: Use Python type hints for all function arguments and return values.
 
-## ⚖️ License
+##  License
 By contributing, you agree that your contributions will be licensed under its MIT License.

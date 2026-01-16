@@ -485,7 +485,7 @@ ab -n 1000 -c 10 -T 'application/json' -p request.json http://localhost:8000/pre
 
 ---
 
-## ✅ Checklist for Production
+##  Checklist for Production
 
 - [ ] All tests passing (80%+ coverage)
 - [ ] Docker images built and tagged

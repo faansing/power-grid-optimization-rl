@@ -52,20 +52,20 @@ class ProjectTracker:
         print("-" * 80)
         
         deliverables = {
-            "✅ Data Pipeline": "data/pjm_hourly.csv",
-            "✅ RL Environment": "environment/power_env.py",
-            "✅ PPO Agent": "agent/ppo_agent.py",
-            "✅ Training Script": "training/train.py",
-            "✅ Evaluation Framework": "training/evaluate.py",
-            "✅ Dashboard": "dashboard/index.html",
-            "✅ Executive README": "README_EXECUTIVE.md",
-            "⏳ Trained Model": "models/final_model.zip",
-            "⏳ Evaluation Report": "reports/evaluation_results.json"
+            " Data Pipeline": "data/pjm_hourly.csv",
+            " RL Environment": "environment/power_env.py",
+            " PPO Agent": "agent/ppo_agent.py",
+            " Training Script": "training/train.py",
+            " Evaluation Framework": "training/evaluate.py",
+            " Dashboard": "dashboard/index.html",
+            " Executive README": "README_EXECUTIVE.md",
+            " Trained Model": "models/final_model.zip",
+            " Evaluation Report": "reports/evaluation_results.json"
         }
         
         for name, path in deliverables.items():
             exists, size = self.check_file_exists(path)
-            status = "✅" if exists else "❌"
+            status = "" if exists else ""
             size_str = f"({size:,} bytes)" if exists else ""
             print(f"  {name:.<50} {status} {size_str}")
         
@@ -98,7 +98,7 @@ class ProjectTracker:
         
         for name, path in docs.items():
             exists, _ = self.check_file_exists(path)
-            status = "✅" if exists else "❌"
+            status = "" if exists else ""
             print(f"  {name:.<50} {status}")
         
         # 4. Code Quality
@@ -144,9 +144,9 @@ class ProjectTracker:
         print("-" * 80)
         
         if status == "Not Started":
-            print("  1. ⏳ Start training: python training/train.py --steps 500000")
+            print("  1.  Start training: python training/train.py --steps 500000")
         elif status.startswith("Running"):
-            print("  1. ⏳ Wait for training to complete (~2-3 hours)")
+            print("  1.  Wait for training to complete (~2-3 hours)")
             print("  2. Monitor: tensorboard --logdir logs/tensorboard")
         
         print("  3. Run evaluation after training completes")
@@ -155,7 +155,7 @@ class ProjectTracker:
         print("  6. Prepare investor deck")
         
         # 7. Timeline Estimate
-        print("\n⏰ ESTIMATED TIMELINE TO DEMO-READY")
+        print("\n ESTIMATED TIMELINE TO DEMO-READY")
         print("-" * 80)
         print("  Training complete:     2-3 hours (from now)")
         print("  Evaluation + report:   1-2 hours")
